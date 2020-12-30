@@ -34,4 +34,8 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\Order');
     }
+    public function order_items(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany('App\Models\OrderItem');
+    }
 }

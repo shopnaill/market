@@ -9,6 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -16,20 +17,27 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rajdhani:400,600&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap" rel="stylesheet">
     <!-- Styles -->
         <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="{{ asset('css/product.css') }}" rel="stylesheet">
+
+
      <style type="text/css">
      body
      {
-        font-family: 'Averta', sans-serif;
+         font-family: 'Cairo', sans-serif;
 
      }
      .backpack.dropzone {
-     font-family: 'SF UI Display', 'Segoe UI';
+         font-family: 'Cairo', sans-serif;
      font-size: 15px;
      text-align: center;
      display: flex;
@@ -102,19 +110,19 @@
 
                     </ul>
                     <form action="{{route('search')}}" class="form-inline my-2 my-lg-0">
-                        <input value="@if(isset($_GET['keyword'])){{$_GET['keyword']}}@endif" class="form-control mr-sm-2" type="search" placeholder="Search" name="keyword" aria-label="Search">
-                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        <input value="@if(isset($_GET['keyword'])){{$_GET['keyword']}}@endif" class="form-control mr-sm-2" type="search" placeholder="بحث عن منتج" name="keyword" aria-label="Search">
+                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">بحث</button>
                     </form>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('دخول') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('التسجيل') }}</a>
                                 </li>
                             @endif
                         @else
@@ -125,16 +133,16 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('admin') }}" >
-                                        {{ __('Admin') }}
+                                        {{ __('لوحة التحكم') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('profile') }}" >
-                                        {{ __('Profile') }}
+                                        {{ __('الملف الشخصي') }}
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('تسجيل الخروج') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

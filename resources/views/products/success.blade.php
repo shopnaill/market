@@ -3,8 +3,8 @@
 @section('content')
 
     <div style="padding: 57px;" class="container bootstrap snippet">
-        <h2>Thanks We have received your order success, we will contact you soon :).</h2>
-        <a class="btn btn-primary" href="/">Continue Shopping</a>
+        <h2>شكرا لك! لقد تلقينا طلبك بنجاح سنقوم بالتواصل معك لأستلام الطلب في أقرب وقت </h2>
+        <a class="btn btn-primary" href="/">تابع التسوق</a>
     </div>
 @endsection
 

@@ -22,13 +22,24 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/demo', function (){
+    return view('welcome');
+})->name('demo');
+
+
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'index'])->name('profile');
 Route::get('/search', [App\Http\Controllers\ProductController::class, 'search'])->name('search');
+Route::get('/add_to_cart/{id}', [App\Http\Controllers\ProductController::class, 'addToCart'])->name('add_to_cart');
+Route::get('/cart', [App\Http\Controllers\ProductController::class, 'cart'])->name('cart');
+Route::patch('update-cart', [App\Http\Controllers\ProductController::class, 'update']);
+Route::delete('remove-from-cart', [App\Http\Controllers\ProductController::class, 'remove']);
 
 Route::get('/category/{id}', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
 Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
 Route::get('/order/{id}', [App\Http\Controllers\ProductController::class, 'order'])->name('order')->middleware('auth');
+Route::get('/order_some', [App\Http\Controllers\ProductController::class, 'order_some'])->name('order_some')->middleware('auth');
 Route::post('/create/order/{id}', [App\Http\Controllers\ProductController::class, 'create_order'])->name('create_order')->middleware('auth');
+Route::post('/create/order_some}', [App\Http\Controllers\ProductController::class, 'create_order_item'])->name('create_order_some')->middleware('auth');
 Route::get('/success', function(){
     return view('products.success');
 })->name('success')->middleware('auth');
@@ -63,7 +74,7 @@ Route::get('/products_api', [App\Http\Controllers\ApiController::class, 'product
 Route::get('/products_category_api/{id}', [App\Http\Controllers\ApiController::class, 'products_category']);
 Route::get('/product_api/{id}', [App\Http\Controllers\ApiController::class, 'product']);
 Route::get('/profile_api/{id}', [App\Http\Controllers\ApiController::class, 'profile']);
-Route::get('/search_api', [App\Http\Controllers\ApiController::class, 'search'])->name('search');
+Route::get('/search_api', [App\Http\Controllers\ApiController::class, 'search']);
 
 // POST METHODS
 //Route::post('/create/order_api/{id}/{user}', [App\Http\Controllers\ApiController::class, 'create_order'])->middleware('auth:api');

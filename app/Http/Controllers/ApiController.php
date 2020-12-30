@@ -164,12 +164,17 @@ class ApiController extends Controller
                     "state" => 1,
                 ));
             } else {
-                $response = ["message" => "Password mismatch"];
-                return response($response, 422);
+                return Response::json(array(
+                    "success" => 0,
+                    "state" => 5 , // Password miss match
+                ));
             }
         } else {
-            $response = ["message" =>'User does not exist'];
-            return response($response, 422);
+
+            return Response::json(array(
+                "success" => 0,
+                "state" => 6 , // User does not exist
+            ));
         }
     }
 
@@ -181,7 +186,12 @@ class ApiController extends Controller
         ]);
         if ($validator->fails())
         {
-            return response(['errors'=>$validator->errors()->all()], 422);
+          //  return response(['errors'=>$validator->errors()->all()], 422);
+
+            return Response::json(array(
+                "success" => 0,
+                "state" => 7 , // Check the inputs
+            ));
         }
         $request['password']=Hash::make($request['password']);
         $user = User::create([

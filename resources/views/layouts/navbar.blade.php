@@ -22,6 +22,6 @@ $sub_cats   = \App\Models\SubCategory::get();
             </li>
         @endforeach
 
-      <a class="py-2 d-none d-md-inline-block" style="padding-top: .9rem!important;" href="#">Cart</a>
+        <a class="py-2 d-none d-md-inline-block" style="padding-top: 0.9rem !important;font-size: 23px;" href="{{route('cart')}}"><i class="fa fa-cart-plus"></i>  @if(session('cart')) <span class="cart-count">{{count(session('cart'))}}</span> @endif</a>
     </div>
   </nav>

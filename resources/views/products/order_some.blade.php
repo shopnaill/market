@@ -4,21 +4,26 @@
 
     <div class="container bootstrap snippet">
 
-        <h2>المنتج</h2>
+        <h2>انشاء طلب جديد</h2>
         <div class="row">
 
-            <div class="col-md-2">
-                <img class="card-img-top" src="{{asset('storage/'.$product->img)}}" alt="Card image cap">
+            <div class="col-md-4">
+                <img class="card-img-top" src="https://cdnimg.webstaurantstore.com/images/products/large/446023/1740001.jpg" alt="Card image cap">
+                <h4>مجموعة منتجات</h4>
             </div>
             <div class="col-md-8">
-               <h4> {{$product->name}}</h4>
-                <p> {{$product->description}}</p>
 
-            </div>
-            <div class="col-md-2">
-                <h5>السعر : {{$product->price}} جنية </h5>
-                <a href="{{route('order',$product->id)}}" class="btn btn-primary btn-block">أطلب الأن</a>
-                <a  href="{{route('add_to_cart',$product->id)}}" class="btn btn-light btn-block"><i class="fa fa-cart-plus"></i> أضافة للعربة </a>
+                <form action="{{route('create_order_some')}}" method="post">
+                    @csrf
+                    <label for="name">الاسم</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                    <label for="phone">رقم الهاتق</label>
+                    <input type="text" class="form-control" name="phone" id="phone">
+                    <label for="address">عنوان التوصيل</label>
+                    <input type="text" class="form-control" name="address" id="address">
+                    <br>
+                    <button type="submit" class="btn btn-primary">أطلب الأن</button>
+                </form>
             </div>
         </div>
     </div>

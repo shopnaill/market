@@ -4,7 +4,7 @@
 
     <div class="container bootstrap snippet">
 
-        <h2>Order Product</h2>
+        <h2>انشاء طلب جديد</h2>
         <div class="row">
 
             <div class="col-md-4">
@@ -15,16 +15,16 @@
 
               <form action="{{route('create_order',$product->id)}}" method="post">
                   @csrf
-                  <label for="name">Name</label>
+                  <label for="name">الأسم</label>
                   <input type="text" class="form-control" name="name" id="name">
-                  <label for="phone">Phone</label>
+                  <label for="phone">رقم الهاتف</label>
                   <input type="text" class="form-control" name="phone" id="phone">
-                  <label for="address">Address</label>
+                  <label for="address">عنوان التوصيل</label>
                   <input type="text" class="form-control" name="address" id="address">
-                  <label for="quantity">Quantity</label>
+                  <label for="quantity">الكمية</label>
                   <input type="number" class="form-control" name="quantity" id="quantity">
                   <br>
-                  <button type="submit" class="btn btn-primary">Order Now</button>
+                  <button type="submit" class="btn btn-primary">أطلب الأن</button>
               </form>
             </div>
         </div>

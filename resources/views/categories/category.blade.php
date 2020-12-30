@@ -16,19 +16,28 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->name}}</h5>
                                 <p class="card-text">{{$product->description}}</p>
-                                <a  href="{{route('order',$product->id)}}" class="btn btn-primary">Order</a>
+                                <div class="row">
+                                    <div class="col-md-6"> <a  href="{{route('order',$product->id)}}" class="btn btn-primary btn-sm btn-block">طلب</a></div>
+                                    <div class="col-md-6"> <a  href="{{route('add_to_cart',$product->id)}}" class="btn btn-light btn-sm btn-block"> العربة</a></div>
+                                </div>
+
                             </div>
                         </a>
                     </div>
                 </div>
                 @empty
 
-                <h6 class="text-center">{{"No Products Found."}}</h6>
+                <h6 class="text-center">{{"لا توجد منتجات"}}</h6>
 
             @endforelse
 
         </div>
     </div>
+
+    <div style=" margin: 0 auto; width: 100%; max-width: fit-content; ">
+        {{ $products->links("pagination::bootstrap-4") }}
+    </div>
+
 @endsection
 
 

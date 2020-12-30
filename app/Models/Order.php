@@ -39,4 +39,9 @@ class Order extends Model
     {
         return $this->belongsTo('App\Models\Product');
     }
+
+    public function orderItem(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo('App\Models\OrderItem');
+    }
 }

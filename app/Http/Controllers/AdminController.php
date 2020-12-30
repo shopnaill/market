@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\SubCategory;
@@ -41,7 +42,10 @@ class AdminController extends Controller
     public function orders()
     {
         $orders = Order::get();
-        return view('admin.orders.index',compact('orders'));
+        $order_items = OrderItem::get();
+
+
+        return view('admin.orders.index',compact('orders','order_items'));
     }
 
     public function add_products()
